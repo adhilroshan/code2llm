@@ -6,6 +6,16 @@ body {
     margin: 0;
 }
 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 700
+
+.montagu-slab-regular {
+  font-family: "Montagu Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .container {
     max-width: 900px;
     margin: 50px auto;
