@@ -11,7 +11,7 @@ def cli():
     art = pyfiglet.figlet_format("Code2LLM", font="isometric1", width=100)
     print(Fore.BLUE + art)
     print("--------------------------------------------------------------")
-    print("Welcome to Code2LLM - Code to Language Model")
+    # print("Welcome to Code2LLM - Code to Language Model")
     print(Fore.RESET)
     pass
 
