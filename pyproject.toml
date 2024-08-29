@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "code2llm"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["Adhil Roshan <adhilroshann@gmail.com>"]
 readme = "README.md"

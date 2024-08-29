@@ -59,7 +59,7 @@ def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
             except Exception as e:
                 output.append(f"Error reading {file_path}: {e}\n")
 
-    # Final instruction to let the LLM know that all files have been entered
+    # Final instruction to let the LLM know that all files have been entered and they can start processing
     output.append("\n### END OF INPUT. You may now begin your analysis or response.\n")
 
     return ''.join(output)
