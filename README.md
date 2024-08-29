@@ -9,7 +9,7 @@
 - [Usage](#usage)
   - [Command-Line Interface (CLI)](#command-line-interface-cli)
   - [Web Interface](#web-interface)
-- [Files and Directories](#files-and-directories)
+<!-- - [Files and Directories](#files-and-directories) -->
 - [Contributing](#contributing)
   - [User Instructions](#user-instructions)
   - [Contributor Instructions](#contributor-instructions)
@@ -68,7 +68,7 @@ http://localhost:2277
 
 Here you can view and interact with the extracted code chunks.
 
-## Files and Directories
+<!-- ## Files and Directories
 
 - **`pyproject.toml`**: Project configuration and dependencies.
 - **`app.py`**: Flask application and server logic.
@@ -76,7 +76,7 @@ Here you can view and interact with the extracted code chunks.
 - **`lib/`**: Library with utilities for code extraction and chunking.
 - **`static/`**: Static files (JavaScript and CSS) for the web interface.
 - **`templates/`**: HTML templates for the web interface.
-- **`tests/`**: Unit tests for the project.
+- **`tests/`**: Unit tests for the project. -->
 
 ## Contributing
 
@@ -123,3 +123,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For questions or feedback, please contact [Adhil Roshan](mailto:adhilroshann@gmail.com).
+
