@@ -1,8 +1,8 @@
 import fnmatch
 import mimetypes
 import os
-from lib.get_source_tree import get_source_tree
-from lib.split_in_to_chunks import split_into_chunks
+from code2llm.lib.get_source_tree import get_source_tree
+from code2llm.lib.split_in_to_chunks import split_into_chunks
 
 def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
     output = []
