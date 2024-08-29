@@ -1,4 +1,5 @@
-![code2llm-banner](https://github.com/user-attachments/assets/a57e6b34-407c-49f1-8767-b0a756513cf3)
+![github-banner](https://github.com/user-attachments/assets/ce50be88-5c05-4060-bf00-f3d1706241c8)
+
 # Code2LLM
 
 **Code2LLM** is a tool for preparing codebases for analysis by language models (LLMs). It extracts code from a specified directory, chunks it into manageable sizes, and formats it for LLM input. This tool provides both a command-line interface (CLI) and a web interface to interact with the extracted code.
