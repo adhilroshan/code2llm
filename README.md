@@ -26,22 +26,13 @@
 
 ## Installation
 
-To install Code2LLM, follow these steps:
+You can install Code2LLM using `pipx`:
 
-1. **Clone the Repository:**
+```bash
+pipx install git+https://github.com/adhilroshan/code2llm.git
+```
 
-   ```bash
-   git clone https://github.com/adhilroshan/code2llm.git
-   cd code2llm
-   ```
-
-2. **Install Dependencies:**
-
-   Code2LLM uses Poetry for dependency management. Ensure you have Poetry installed, then run:
-
-   ```bash
-   poetry install
-   ```
+`pipx` is a tool for installing and running Python applications in isolated environments. It ensures that Code2LLM and its dependencies don't interfere with other Python projects on your system.
 
 ## Usage
 
@@ -52,7 +43,7 @@ To install Code2LLM, follow these steps:
    Initialize default exclusion patterns and add additional patterns if needed:
 
    ```bash
-   poetry run code2llm init --additional-excludes '*.tmp' 'test_dir/'
+   code2llm init --additional-excludes '*.tmp' 'test_dir/'
    ```
 
 2. **Start Extraction and Web Server:**
@@ -60,7 +51,7 @@ To install Code2LLM, follow these steps:
    Run the extraction process and start the Flask web server:
 
    ```bash
-   poetry run code2llm --directory /path/to/your/code --max-chars 3000 --port 2277
+   code2llm --directory /path/to/your/code --max-chars 3000 --port 2277
    ```
 
    - `--directory`: Base directory to scan.
@@ -132,4 +123,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For questions or feedback, please contact [Adhil Roshan](mailto:adhilroshann@gmail.com).
-
