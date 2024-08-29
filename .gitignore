@@ -1,0 +1,36 @@
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+
+# Ignore system and temporary files
+.DS_Store
+Thumbs.db
+*.swp
+# Ignore Python virtual environment
+venv/
+
+# Ignore Poetry lock file
+poetry.lock
+
+# Ignore Poetry generated files
+__pypackages__/
+__pycache__/
+
+# Ignore Poetry cache
+.cache/
+
+# Ignore Poetry virtual environment
+.pyvenv/
+
+# Ignore Poetry build artifacts
+dist/
+build/

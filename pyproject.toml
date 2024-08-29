@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "code2llm"
+version = "0.1.0"
+description = ""
+authors = ["Adhil Roshan <adhilroshann@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+pyfiglet = "^1.0.2"
+flask = "^3.0.3"
+colorama = "^0.4.6"
+waitress = "^3.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+code2llm = "code2llm:cli"

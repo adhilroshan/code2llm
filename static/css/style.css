@@ -1,0 +1,118 @@
+body {
+    background-color: #1a202c;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.chunk {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    background-color: #1a202c;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chunk:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #4fd1c5;
+    color: #1a202c;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+.copy-btn:hover {
+    background-color: #38b2ac;
+}
+
+.copy-btn:focus {
+    outline: 2px solid #4fd1c5;
+    outline-offset: 2px;
+}
+
+pre {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.copied-container {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #2d3748;
+    border-radius: 8px;
+    border: 1px solid #4a5568;
+}
+
+.copied-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    background-color: #1a202c;
+    transition: background-color 0.3s ease;
+}
+
+.copied-item:hover {
+    background-color: #2a2e38;
+}
+
+.copied-item pre {
+    margin: 0;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    margin-left: -125px;
+    background-color: #38b2ac;
+    color: #1a202c;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}

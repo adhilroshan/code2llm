@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code2LLM</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div class="container" role="main">
+        <h1>Code2LLM</h1>
+        <div id="code-container"></div>
+
+        <div class="copied-container">
+            <h2 class="text-center text-lg font-semibold text-gray-300">Copied Chunks</h2>
+            <div id="completed-chunks"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive">Copied to clipboard!</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="../static/js/scripts.js"></script>
+</body>
+
+</html>
