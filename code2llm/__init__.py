@@ -9,9 +9,10 @@ from colorama import Fore
 @click.version_option()
 def cli():
     art = pyfiglet.figlet_format("Code2LLM", font="isometric1", width=100)
-    print(Fore.BLUE + art + Fore.RESET)
+    print(Fore.BLUE + art)
     print("--------------------------------------------------------------")
-
+    print("Welcome to Code2LLM - Code to Language Model")
+    print(Fore.RESET)
     pass
 
 @cli.command()
