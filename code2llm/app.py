@@ -4,9 +4,9 @@ from flask import Flask, render_template, jsonify
 import click
 import waitress
 
-from lib.commandline_response import commandline_response
-from lib.extract_files_for_llm import extract_files_for_llm
-from lib.read_exclude_patterns import read_exclude_patterns
+from code2llm.lib.commandline_response import commandline_response
+from code2llm.lib.extract_files_for_llm import extract_files_for_llm
+from code2llm.lib.read_exclude_patterns import read_exclude_patterns
 
 app = Flask(__name__)
 

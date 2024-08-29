@@ -1,7 +1,7 @@
 import click
 import os
-import app
-import pyfiglet
+import code2llm.app as app
+import pyfiglet 
 from code2llm.initialize import init_cmd
 from colorama import Fore
 
