@@ -37,6 +37,10 @@ def content():
 @click.option('--max-chars', '-m', type=int, default=3000, help='Maximum number of characters per chunk.')
 @click.option('--port', '-p', type=int, default=2277, help='Port number for the Flask app.')
 def start(directory, max_chars, port):
+    """Start the Code2LLM server.
+
+    Launches the server to process the codebase.
+    """
     exclude_file_path = os.path.join(directory, EXCLUDE_FILE_NAME)
 
     # Ensure the exclude file exists

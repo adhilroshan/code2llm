@@ -19,6 +19,10 @@ def cli():
               multiple=True, 
               help="Additional file patterns or directories to exclude from processing, e.g., '*.tmp' or 'test_dir/'.")
 def init(additional_excludes):
+    """Initialize the Code2LLM environment.
+
+    Scans the current directory and prepares the environment with optional additional exclusions.
+    """
     directory = os.getcwd()
     init_cmd(directory, additional_excludes)
 
