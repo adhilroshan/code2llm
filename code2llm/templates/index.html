@@ -4,25 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Code2LLM - Seamlessly chat with your codebase using GPT-4o or Claude-3.5 Sonnet without needing an API key.">
+    <meta name="keywords" content="LLM, GPT-4o, Claude-3.5, Codebase, AI Tools">
+    <meta property="og:title" content="Code2LLM">
+    <meta property="og:description" content="Seamlessly chat with your codebase using GPT-4o or Claude-3.5 Sonnet.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-website.com">
     <title>Code2LLM</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100..700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <div class="container" role="main">
-        <h1 class="montagu-slab-regular">
+        <h1 class="montagu-slab-regular" aria-label="Code to LLM">
             Code<span>2</span>LLM
         </h1>
-        <div id="code-container"></div>
+        <div id="code-container" role="region" aria-live="polite"></div>
 
         <div class="copied-container">
-            <h2 class="text-center text-lg font-semibold text-gray-300 montagu-slab-regular">Copied Chunks</h2>
+            <h2 class="text-center text-lg font-semibold text-gray-300 montagu-slab-regular" aria-label="Copied Chunks">
+                Copied Chunks</h2>
             <div id="completed-chunks"></div>
         </div>
     </div>

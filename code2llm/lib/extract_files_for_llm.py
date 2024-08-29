@@ -1,22 +1,30 @@
 import fnmatch
 import mimetypes
 import os
-from code2llm.lib.get_source_tree import get_source_tree
-from code2llm.lib.split_in_to_chunks import split_into_chunks
-
+from lib.get_source_tree import get_source_tree
+from lib.split_in_to_chunks import split_into_chunks
 
 def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
     output = []
 
+    # Add initial instructions for the LLM
+    output.append("### IMPORTANT: LLM Interaction Instructions ###\n")
+    output.append(
+        "Please do not respond or analyze the content until you receive the final signal indicating all files have been entered. "
+        "I will provide multiple files or parts of files below. Once you receive the final signal, you may begin your analysis.\n\n"
+    )
+
+    # Include the source tree structure
     source_tree = get_source_tree(base_dir, exclude_patterns)
     output.append("### Source Tree\n")
     output.append(f"{source_tree}\n\n")
 
+    # Initial instruction for LLM input preparation
     output.append("### LLM Input Preparation\n")
     output.append(
-        "The following sections contain code snippets extracted from a codebase. Each snippet is labeled with "
-        "its file name and part number if split. Please copy each chunk carefully and provide analysis or "
-        "suggestions based on the provided content.\n\n"
+        "The following sections contain code snippets extracted from the codebase. "
+        "Each snippet is labeled with its file name and part number if split. "
+        "Please wait until all snippets are provided before starting your analysis.\n\n"
     )
 
     def should_exclude(file_path):
@@ -49,5 +57,8 @@ def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
                         output.append("\n\n")
             except Exception as e:
                 output.append(f"Error reading {file_path}: {e}\n")
+
+    # Final instruction to let the LLM know that all files have been entered
+    output.append("\n### All files entered. You may now begin your analysis or response.\n")
 
     return ''.join(output)

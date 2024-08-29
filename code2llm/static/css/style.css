@@ -1,17 +1,25 @@
+:root {
+    --bg-color: #1a202c;
+    --text-color: #e2e8f0;
+    --border-color: #4a5568;
+    --highlight-color: #4fd1c5;
+    --toast-bg-color: #38b2ac;
+    --toast-text-color: #1a202c;
+}
+
 body {
-    background-color: #1a202c;
-    color: #e2e8f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Inter', sans-serif;
     padding: 0;
     margin: 0;
 }
 
-
 .montagu-slab-regular {
-  font-family: "Montagu Slab", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 400;
+    font-family: "Montagu Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
 }
 
 .container {
@@ -32,16 +40,16 @@ h1 {
     margin-bottom: 30px;
 }
 
-span{
-    color: #4ad3c3;
+span {
+    color: var(--highlight-color);
 }
 
 .chunk {
     margin-bottom: 20px;
     padding: 20px;
-    border: 1px solid #4a5568;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: #1a202c;
+    background-color: var(--bg-color);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -60,8 +68,8 @@ span{
     border-radius: 5px;
     cursor: pointer;
     font-size: 12px;
-    background-color: #4fd1c5;
-    color: #1a202c;
+    background-color: var(--highlight-color);
+    color: var(--toast-text-color);
     transition: background-color 0.3s ease;
     outline: none;
 }
@@ -70,8 +78,8 @@ span{
     background-color: #38b2ac;
 }
 
-.copy-btn:focus {
-    outline: 2px solid #4fd1c5;
+.copy-btn:focus-visible {
+    outline: 2px solid var(--highlight-color);
     outline-offset: 2px;
 }
 
@@ -87,15 +95,15 @@ pre {
     padding: 20px;
     background-color: #2d3748;
     border-radius: 8px;
-    border: 1px solid #4a5568;
+    border: 1px solid var(--border-color);
 }
 
 .copied-item {
     margin-bottom: 15px;
     padding: 15px;
-    border: 1px solid #4a5568;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: #1a202c;
+    background-color: var(--bg-color);
     transition: background-color 0.3s ease;
 }
 
@@ -111,8 +119,8 @@ pre {
     visibility: hidden;
     min-width: 200px;
     margin-left: -125px;
-    background-color: #38b2ac;
-    color: #1a202c;
+    background-color: var(--toast-bg-color);
+    color: var(--toast-text-color);
     text-align: center;
     border-radius: 8px;
     padding: 16px;

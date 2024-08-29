@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const completedChunksContainer = document.getElementById("completed-chunks");
     const toast = document.getElementById("toast");
 
+    // Fetch content from the server
     fetch("/content")
         .then(response => response.json())
         .then(data => {
@@ -10,50 +11,67 @@ document.addEventListener("DOMContentLoaded", function () {
             const chunks = content.split(/(?=--- File: )/);
 
             chunks.forEach(chunk => {
-                const chunkDiv = document.createElement("div");
-                chunkDiv.className = "chunk";
+                createChunkElement(chunk);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching content:", error);
+            showToast("Failed to load content.", true);
+        });
 
-                const copyButton = document.createElement("button");
-                copyButton.className = "copy-btn";
-                copyButton.textContent = "Copy";
-                copyButton.onclick = () => {
-                    navigator.clipboard.writeText(chunk).then(() => {
-                        showToast();
+    function createChunkElement(chunk) {
+        const chunkDiv = document.createElement("div");
+        chunkDiv.className = "chunk";
 
-                        const completedItemDiv = document.createElement("div");
-                        completedItemDiv.className = "copied-item";
+        const copyButton = document.createElement("button");
+        copyButton.className = "copy-btn";
+        copyButton.textContent = "Copy";
+        copyButton.onclick = () => handleCopy(chunk, chunkDiv);
 
-                        const pre = document.createElement("pre");
-                        const code = document.createElement("code");
-                        code.className = "language-text";
-                        code.textContent = chunk;
-                        pre.appendChild(code);
-                        completedItemDiv.appendChild(pre);
+        chunkDiv.appendChild(copyButton);
 
-                        completedChunksContainer.appendChild(completedItemDiv);
+        const pre = document.createElement("pre");
+        const code = document.createElement("code");
+        code.className = "language-text";
+        code.textContent = chunk;
+        pre.appendChild(code);
+        chunkDiv.appendChild(pre);
 
-                        Prism.highlightElement(code);
+        codeContainer.appendChild(chunkDiv);
+        Prism.highlightElement(code);
+    }
 
-                        // Remove the copied chunk from the original container
-                        codeContainer.removeChild(chunkDiv);
-                    });
-                };
+    function handleCopy(chunk, chunkDiv) {
+        navigator.clipboard.writeText(chunk)
+            .then(() => {
+                showToast("Copied to clipboard!");
 
-                chunkDiv.appendChild(copyButton);
+                const completedItemDiv = document.createElement("div");
+                completedItemDiv.className = "copied-item";
 
                 const pre = document.createElement("pre");
                 const code = document.createElement("code");
                 code.className = "language-text";
                 code.textContent = chunk;
                 pre.appendChild(code);
-                chunkDiv.appendChild(pre);
+                completedItemDiv.appendChild(pre);
 
-                codeContainer.appendChild(chunkDiv);
+                completedChunksContainer.appendChild(completedItemDiv);
+
                 Prism.highlightElement(code);
-            });
-        });
 
-    function showToast() {
+                // Remove the copied chunk from the original container
+                codeContainer.removeChild(chunkDiv);
+            })
+            .catch(error => {
+                console.error("Error copying to clipboard:", error);
+                showToast("Failed to copy to clipboard.", true);
+            });
+    }
+
+    function showToast(message, isError = false) {
+        toast.textContent = message;
+        toast.style.backgroundColor = isError ? "#e53e3e" : "#38b2ac";
         toast.className = "toast show";
         setTimeout(() => { toast.className = "toast"; }, 3000);
     }
