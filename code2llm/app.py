@@ -7,6 +7,7 @@ import waitress
 from code2llm.lib.commandline_response import commandline_response
 from code2llm.lib.extract_files_for_llm import extract_files_for_llm
 from code2llm.lib.read_exclude_patterns import read_exclude_patterns
+from lib.find_available_port import find_available_port
 
 app = Flask(__name__)
 
@@ -35,13 +36,14 @@ def content():
 @click.command()
 @click.option('--directory', '-d', type=str, default=os.getcwd(), help='Base directory to scan.')
 @click.option('--max-chars', '-m', type=int, default=3000, help='Maximum number of characters per chunk.')
-@click.option('--port', '-p', type=int, default=2277, help='Port number for the Flask app.')
+# @click.option('--port', '-p', type=int, default=2255, help='Port number for the Flask app.')
 def start(directory, max_chars, port):
     """Start the Code2LLM server.
 
     Launches the server to process the codebase.
     """
     exclude_file_path = os.path.join(directory, EXCLUDE_FILE_NAME)
+    port = find_available_port()
 
     # Ensure the exclude file exists
     if not os.path.exists(exclude_file_path):
