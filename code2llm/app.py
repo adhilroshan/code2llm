@@ -37,7 +37,7 @@ def content():
 @click.option('--directory', '-d', type=str, default=os.getcwd(), help='Base directory to scan.')
 @click.option('--max-chars', '-m', type=int, default=3000, help='Maximum number of characters per chunk.')
 # @click.option('--port', '-p', type=int, default=2255, help='Port number for the Flask app.')
-def start(directory, max_chars, port):
+def start(directory, max_chars):
     """Start the Code2LLM server.
 
     Launches the server to process the codebase.
