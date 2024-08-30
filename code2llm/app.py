@@ -7,7 +7,7 @@ import waitress
 from code2llm.lib.commandline_response import commandline_response
 from code2llm.lib.extract_files_for_llm import extract_files_for_llm
 from code2llm.lib.read_exclude_patterns import read_exclude_patterns
-from lib.find_available_port import find_available_port
+from code2llm.lib.find_available_port import find_available_port
 
 app = Flask(__name__)
 
