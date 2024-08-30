@@ -5,7 +5,7 @@ import pyfiglet
 from colorama import Fore
 
 
-def commandline_response():
+def commandline_response(port):
     art = pyfiglet.figlet_format("Code2LLM", font="isometric1", width=100)
     if platform.system() == 'Windows':
         os.system('cls')
@@ -19,6 +19,6 @@ def commandline_response():
     print(Fore.RESET)
     print("Your codebase is now prepared for seamless LLM input.")
     print("Access the ready-to-copy code snippets here:")
-    print("\033[1;32mhttp://localhost:2277\033[0m")
+    print(f"\033[1;32mhttp://localhost:{port}\033[0m")
     print("--------------------------------------------------------------")
     print("✨ Happy Coding! ✨")

@@ -57,7 +57,7 @@ def start(directory, max_chars, port):
 
     suppress_flask_logs()
 
-    commandline_response()
+    commandline_response(port=port)
 
     # Use Waitress to serve the Flask app quietly
     waitress.serve(app, host='0.0.0.0', port=port, _quiet=True)
