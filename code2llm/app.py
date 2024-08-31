@@ -36,7 +36,7 @@ def content():
 
 @click.command()
 @click.option('--directory', '-d', type=str, default=os.getcwd(), help='Base directory to scan.')
-@click.option('--max-chars', '-m', type=int, default=3000, help='Maximum number of characters per chunk.')
+@click.option('--max-chars', '-m', type=int, default=128000, help='Maximum number of characters per chunk.')
 def start(directory, max_chars):
     """Start the Code2LLM server.
 
