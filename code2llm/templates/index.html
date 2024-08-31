@@ -20,7 +20,12 @@
 </head>
 
 <body>
-    <div class="container" role="main">
+    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+        <div class="spinner"></div>
+        <p>Loading content, please wait...</p>
+    </div>
+
+    <div class="container" role="main" style="display: none;">
         <h1 class="montagu-slab-regular" aria-label="Code to LLM">
             Code<span>2</span>LLM
         </h1>
@@ -38,5 +43,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="../static/js/scripts.js"></script>
 </body>
+
 
 </html>

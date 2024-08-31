@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const codeContainer = document.getElementById("code-container");
     const completedChunksContainer = document.getElementById("completed-chunks");
     const toast = document.getElementById("toast");
+    const loadingScreen = document.getElementById("loading-screen");
+    const container = document.querySelector(".container");
 
     // Fetch content from the server
     fetch("/content")
@@ -13,10 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
             chunks.forEach(chunk => {
                 createChunkElement(chunk);
             });
+
+            // Hide loading screen and show content
+            loadingScreen.style.display = "none";
+            container.style.display = "block";
         })
         .catch(error => {
             console.error("Error fetching content:", error);
             showToast("Failed to load content.", true);
+            loadingScreen.innerHTML = "<p>Failed to load content. Please try again later.</p>";
         });
 
     function createChunkElement(chunk) {
