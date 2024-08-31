@@ -47,8 +47,9 @@ def start(directory, max_chars):
 
     # Ensure the exclude file exists
     if not os.path.exists(exclude_file_path):
-        raise FileNotFoundError(f"{exclude_file_path} not found. Please run 'code2llm init' first.")
-
+        click.echo(f"{EXCLUDE_FILE_NAME} not found in the directory. Please run 'code2llm init' before starting the server.")
+        return
+    
     # Your existing extraction logic here
     exclude_patterns = read_exclude_patterns(exclude_file_path)
     
