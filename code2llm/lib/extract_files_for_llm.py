@@ -7,25 +7,24 @@ from code2llm.lib.split_in_to_chunks import split_into_chunks
 def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
     output = []
 
-    # Step 1: Chain-of-Thought - Clear initial instructions
+    # Add initial instructions for the LLM
     output.append("### IMPORTANT: LLM Interaction Instructions ###\n")
     output.append(
-        "1. **Please DO NOT respond, analyze, or provide any feedback until you receive the final signal: '## END_OF_INPUT ##'.**\n"
-        "2. **Multiple files or parts of files will be provided.**\n"
-        "3. **Acknowledge this instruction by waiting until the final signal before responding.**\n\n"
+        "Please DO NOT respond, analyze, or provide any feedback until you receive the specific signal '## END_OF_INPUT ##'. "
+        "Multiple files or parts of files will be provided. Once you receive the signal '## END_OF_INPUT ##', you may begin your analysis and provide a response.\n\n"
     )
 
-    # Step 2: Include the source tree structure
+    # Include the source tree structure
     source_tree = get_source_tree(base_dir, exclude_patterns)
     output.append("### Source Tree\n")
     output.append(f"{source_tree}\n\n")
 
-    # Step 3: Initial instruction for LLM input preparation
+    # Initial instruction for LLM input preparation
     output.append("### LLM Input Preparation\n")
     output.append(
         "The following sections contain code snippets extracted from the codebase. "
         "Each snippet is labeled with its file name and part number if split. "
-        "**Reminder: Please wait until you receive the signal '## END_OF_INPUT ##' before starting your analysis or response.**\n\n"
+        "Important: Please wait until you receive the signal '## END_OF_INPUT ##' before starting your analysis or response.\n\n"
     )
 
     def should_exclude(file_path):
@@ -54,17 +53,14 @@ def extract_files_for_llm(base_dir, exclude_patterns, max_chars=3000):
                     for i, chunk in enumerate(chunks):
                         output.append(f"--- File: {relative_path} - Part {i + 1} ---\n")
                         output.append(f"Language: {language}, Size: {os.path.getsize(file_path)} bytes\n")
-                        
-                        # Step 4: Tree-of-Thought & Self-Refine - Reminder in each chunk
-                        output.append("### Reminder: Do not respond until you receive '## END_OF_INPUT ##'.\n")
-                        output.append("### Verify that this is not the final input. If it is not, continue waiting.\n")
+                        output.append("### Reminder: DO NOT respond until you receive '## END_OF_INPUT ##'.\n")
                         output.append(chunk)
                         output.append("\n\n")
             except Exception as e:
                 # Log errors separately instead of including them in LLM input
                 print(f"Error reading {file_path}: {e}")
 
-    # Step 5: Final instruction - Signal to start processing
+    # Final instruction to let the LLM know that all files have been entered and they can start processing
     output.append("\n### ## END_OF_INPUT ##. You may now begin your analysis or response.\n")
 
     return ''.join(output)
