@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const max_chars = data.max_chars;
 
             // Split content into chunks based on max_chars
-            const chunks = splitContentIntoChunks(content, max_chars);
-
+            const chunks = content.split(/(?=--- File: )/);
             chunks.forEach(chunk => {
                 createChunkElement(chunk);
             });
