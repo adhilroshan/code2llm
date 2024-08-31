@@ -11,7 +11,7 @@ from code2llm.lib.find_available_port import find_available_port
 
 app = Flask(__name__)
 
-extracted_content = ""
+# extracted_content = ""
 EXCLUDE_FILE_NAME = ".llm_ignore"
 
 def page_not_found(e):
@@ -31,12 +31,12 @@ def index():
 
 @app.route('/content')
 def content():
-    return jsonify({'content': extracted_content})
+    return jsonify({'content': extracted_content,"max_chars": max_characters})
+    # print("Extracted content", extracted_content)
 
 @click.command()
 @click.option('--directory', '-d', type=str, default=os.getcwd(), help='Base directory to scan.')
 @click.option('--max-chars', '-m', type=int, default=3000, help='Maximum number of characters per chunk.')
-# @click.option('--port', '-p', type=int, default=2255, help='Port number for the Flask app.')
 def start(directory, max_chars):
     """Start the Code2LLM server.
 
@@ -52,6 +52,9 @@ def start(directory, max_chars):
     
     # Your existing extraction logic here
     exclude_patterns = read_exclude_patterns(exclude_file_path)
+    
+    global max_characters
+    max_characters = max_chars
     
     global extracted_content
     extracted_content = extract_files_for_llm(directory, exclude_patterns, max_chars)

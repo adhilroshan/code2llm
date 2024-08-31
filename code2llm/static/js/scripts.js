@@ -9,8 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/content")
         .then(response => response.json())
         .then(data => {
+            // console.log("data fetched:", data);
             const content = data.content;
-            const chunks = content.split(/(?=--- File: )/);
+            const max_chars = data.max_chars;
+
+            // Split content into chunks based on max_chars
+            const chunks = splitContentIntoChunks(content, max_chars);
 
             chunks.forEach(chunk => {
                 createChunkElement(chunk);
@@ -25,6 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
             showToast("Failed to load content.", true);
             loadingScreen.innerHTML = "<p>Failed to load content. Please try again later.</p>";
         });
+
+    function splitContentIntoChunks(content, maxChars) {
+        const chunks = [];
+        let currentPos = 0;
+
+        while (currentPos < content.length) {
+            const chunk = content.slice(currentPos, currentPos + maxChars);
+            chunks.push(chunk);
+            currentPos += maxChars;
+        }
+
+        return chunks;
+    }
 
     function createChunkElement(chunk) {
         const chunkDiv = document.createElement("div");
