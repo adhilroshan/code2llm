@@ -126,3 +126,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions or feedback, please contact [Adhil Roshan](mailto:adhilroshann@gmail.com).
 
+## Blog
+
+Check out our [blog post](https://blog.adhilroshan.me/introducing-code2llm-seamless-interaction-with-your-codebase-using-gpt-4o-and-claude-35-sonnet) for more insights and detailed information about Code2LLM!
+
